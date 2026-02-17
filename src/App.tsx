@@ -21,11 +21,32 @@ function App() {
     setMovies(movies.filter(movie => movie.id !== id))
   }
 
+  const toggleWatched = (id: number) => {
+    setMovies(movies.map(movie =>
+      movie.id === id
+        ? { ...movie, watched: !movie.watched, reaction: null }
+        : movie
+    ))
+  }
+
+  const setReaction = (id: number, reaction: 'like' | 'dislike') => {
+    setMovies(movies.map(movie =>
+      movie.id === id
+        ? { ...movie, reaction }
+        : movie
+    ))
+  }
+
   return (
     <div className="app">
       <h1>Movie Tracker</h1>
       <AddMovie onAdd={addMovie} />
-      <MovieList movies={movies} onDelete={deleteMovie} />
+      <MovieList 
+        movies={movies}
+        onDelete={deleteMovie}
+        onToggleWatched={toggleWatched}
+        onSetReaction={setReaction}
+      />
     </div>
   )
 }

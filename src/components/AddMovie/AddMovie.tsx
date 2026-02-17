@@ -1,19 +1,19 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
 interface AddMovieProps {
-  onAdd: (title: string) => void;
+  onAdd: (title: string) => void
 }
 
 export const AddMovie = ({ onAdd }: AddMovieProps) => {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState('')
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
     if (title.trim()) {
-      onAdd(title);
-      setTitle('');
+      onAdd(title)
+      setTitle('')
     }
-  };
+  }
 
   return (
     <form onSubmit={handleSubmit} className="add-form">
@@ -25,5 +25,5 @@ export const AddMovie = ({ onAdd }: AddMovieProps) => {
       />
       <button type="submit">Add</button>
     </form>
-  );
-};
+  )
+}
