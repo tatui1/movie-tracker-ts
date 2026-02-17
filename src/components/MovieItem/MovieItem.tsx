@@ -1,12 +1,19 @@
 import type { Movie } from '../../types'
+import { LikeDislike } from '../LikeDislike/LikeDislike'
 
 interface MovieItemProps {
-  movie: Movie
+  movie: Movie;
   onDelete: (id: number) => void
   onToggleWatched: (id: number) => void
+  onSetReaction: (id: number, reaction: 'like' | 'dislike') => void
 }
 
-export const MovieItem = ({ movie, onDelete, onToggleWatched }: MovieItemProps) => {
+export const MovieItem = ({ 
+  movie, 
+  onDelete, 
+  onToggleWatched, 
+  onSetReaction 
+}: MovieItemProps) => {
   return (
     <div className={`movie-item ${movie.watched ? 'watched' : ''}`}>
       <div className="movie-info">
@@ -17,7 +24,17 @@ export const MovieItem = ({ movie, onDelete, onToggleWatched }: MovieItemProps) 
         />
         <span className="title">{movie.title}</span>
       </div>
-      <button onClick={() => onDelete(movie.id)} className="delete">✕</button>
+      
+      <div className="movie-controls">
+        {movie.watched && (
+          <LikeDislike
+            reaction={movie.reaction}
+            onLike={() => onSetReaction(movie.id, 'like')}
+            onDislike={() => onSetReaction(movie.id, 'dislike')}
+          />
+        )}
+        <button onClick={() => onDelete(movie.id)} className="delete">✕</button>
+      </div>
     </div>
   )
 }

@@ -89,3 +89,22 @@ h1 {
 
   font-size: 18px;
 }
+.movie-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.like-dislike {
+  display: flex;
+  gap: 8px;
+}
+
+
+.like-dislike button.like.active {
+  color: #4CAF50;
+}
+
+.like-dislike button.dislike.active {
+  color: #f44336;
+}
