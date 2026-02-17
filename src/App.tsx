@@ -23,18 +23,12 @@ function App() {
 
   const toggleWatched = (id: number) => {
     setMovies(movies.map(movie =>
-      movie.id === id
-        ? { ...movie, watched: !movie.watched, reaction: null }
-        : movie
-    ))
+      movie.id === id ? { ...movie, watched: !movie.watched, reaction: null }: movie))
   }
 
   const setReaction = (id: number, reaction: 'like' | 'dislike') => {
     setMovies(movies.map(movie =>
-      movie.id === id
-        ? { ...movie, reaction }
-        : movie
-    ))
+      movie.id === id ? { ...movie, reaction }: movie))
   }
 
   return (
@@ -45,8 +39,7 @@ function App() {
         movies={movies}
         onDelete={deleteMovie}
         onToggleWatched={toggleWatched}
-        onSetReaction={setReaction}
-      />
+        onSetReaction={setReaction}/>
     </div>
   )
 }

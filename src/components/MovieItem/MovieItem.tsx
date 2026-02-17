@@ -20,8 +20,7 @@ export const MovieItem = ({
         <input
           type="checkbox"
           checked={movie.watched}
-          onChange={() => onToggleWatched(movie.id)}
-        />
+          onChange={() => onToggleWatched(movie.id)}/>
         <span className="title">{movie.title}</span>
       </div>
       
@@ -30,8 +29,7 @@ export const MovieItem = ({
           <LikeDislike
             reaction={movie.reaction}
             onLike={() => onSetReaction(movie.id, 'like')}
-            onDislike={() => onSetReaction(movie.id, 'dislike')}
-          />
+            onDislike={() => onSetReaction(movie.id, 'dislike')}/>
         )}
         <button onClick={() => onDelete(movie.id)} className="delete">✕</button>
       </div>

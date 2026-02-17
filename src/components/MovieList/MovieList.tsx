@@ -15,7 +15,7 @@ export const MovieList = ({
   onSetReaction 
 }: MovieListProps) => {
   if (movies.length === 0) {
-    return <p className="empty">Список фильмов пуст </p>
+    return <p className="empty">Список фильмов пуст</p>
   }
 
   return (

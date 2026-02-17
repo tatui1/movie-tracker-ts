@@ -21,8 +21,7 @@ export const AddMovie = ({ onAdd }: AddMovieProps) => {
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Введите название фильма"
-      />
+        placeholder="Введите название фильма"/>
       <button type="submit">Add</button>
     </form>
   )
